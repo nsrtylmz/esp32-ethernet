@@ -10,6 +10,9 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  DOXYGEN_VERSION: "1.18.0"
+
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -18,16 +21,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Install Doxygen
-        run: sudo apt-get update && sudo apt-get install -y doxygen
+      - uses: actions/checkout@v5
+      - name: Install Doxygen ${{ env.DOXYGEN_VERSION }}
+        run: |
+          V=${DOXYGEN_VERSION}
+          curl -fsSL "https://github.com/doxygen/doxygen/releases/download/Release_${V//./_}/doxygen-${V}.linux.bin.tar.gz" | tar -xz -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/doxygen-${V}/bin" >> "$GITHUB_PATH"
       - name: Generate documentation
         run: |
           mkdir -p docs
+          doxygen --version
           doxygen Doxyfile
           cat docs/doxygen_warnings.log
           test ! -s docs/doxygen_warnings.log   # fail on warnings
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: docs/html
 

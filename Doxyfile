@@ -12,7 +12,7 @@ AUTOLINK_SUPPORT       = YES
 TAB_SIZE               = 4
 
 # Input
-INPUT                  = README.md Ethernet.h
+INPUT                  = README.md README.tr.md Ethernet.h
 FILE_PATTERNS          = *.h *.md
 RECURSIVE              = NO
 USE_MDFILE_AS_MAINPAGE = README.md
