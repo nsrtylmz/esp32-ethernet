@@ -1,0 +1,24 @@
+version: "1.0.0"
+description: "Arduino-style Ethernet wrapper for ESP-IDF (W5500, DM9051, KSZ8851SNL, internal EMAC)"
+license: "MIT"
+url: "https://github.com/nsrtylmz/esp32-ethernet"
+repository: "https://github.com/nsrtylmz/esp32-ethernet.git"
+documentation: "https://nsrtylmz.github.io/esp32-ethernet/"
+issues: "https://github.com/nsrtylmz/esp32-ethernet/issues"
+maintainers:
+  - "nsrtylmz"
+tags:
+  - ethernet
+  - w5500
+  - dm9051
+  - ksz8851snl
+  - emac
+  - esp_netif
+files:
+  exclude:
+    - "docs/**/*"
+    - "test_apps/**/*"
+    - ".github/**/*"
+    - "**/build/**/*"
+dependencies:
+  idf: ">=5.3"

@@ -1,0 +1,29 @@
+menu "Ethernet Test Configuration"
+    config TEST_ETH_SPI_HOST
+        int "SPI host (1 = SPI2_HOST, 2 = SPI3_HOST)"
+        default 1
+    config TEST_ETH_SPI_SCLK
+        int "SCLK GPIO"
+        default 12
+    config TEST_ETH_SPI_MISO
+        int "MISO GPIO"
+        default 14
+    config TEST_ETH_SPI_MOSI
+        int "MOSI GPIO"
+        default 27
+    config TEST_ETH_SPI_CS
+        int "CS GPIO"
+        default 13
+    config TEST_ETH_SPI_INT
+        int "INT GPIO (-1 = polling)"
+        default 26
+    config TEST_ETH_PHY_RST
+        int "PHY reset GPIO (-1 = not used)"
+        default 25
+    config TEST_ETH_STATIC_IP
+        string "Static IP used by the static IP test"
+        default "192.168.1.200"
+    config TEST_ETH_STATIC_GW
+        string "Gateway used by the static IP test"
+        default "192.168.1.1"
+endmenu

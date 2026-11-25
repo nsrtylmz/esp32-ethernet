@@ -1,0 +1,19 @@
+build/
+sdkconfig
+sdkconfig.old
+managed_components/
+dependencies.lock
+.vscode/
+.settings/
+.project
+.cproject
+*.swp
+docs/
+
+# Espressif-IDE / Eclipse workspace files (examples, test apps)
+.metadata/
+tool_set_config.json
+.clangd
+.clang-format
+/examples/.gitignore
+/test_apps/.gitignore
